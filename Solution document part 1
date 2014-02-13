@@ -1,0 +1,16 @@
+6) Output for make -f Makefile -l 
+
+	gcc -o hello hello.c
+
+7) gdb stepthrough:
+	(gdb) break main
+	Breakpoint 1 at 0x400531
+	(gdb) run
+	Starting program: /home/gctacker/Documents/lab_2_part1/./hello 
+
+	Breakpoint 1, 0x0000000000400531 in main ()
+
+8) terminal output for hello
+
+	gctacker@greglaptop ~/Documents/lab_2_part1 $ ./hello
+	Hello Worldgctacker@greglaptop ~/Documents/lab_2_part1 $
