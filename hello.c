@@ -5,6 +5,6 @@
 
 main()
 {
-    printf("Hello World");
+    printf("Hello World");      /*prints 'Hello World' on display when file is executed*/
 
 }
