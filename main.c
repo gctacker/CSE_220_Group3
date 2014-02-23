@@ -14,19 +14,23 @@ int main (int argc, const char *argv[])
 		looped = get_source_line(*source_file, source_name[],date[]);
 	}
 	
-    
-   /* Missing Code Here */
+    fclose(source_file);
+   /* xxMissing Code Here */
     return 0;
 }
 FILE *init_lister(const char *name, char source_file_name[], char dte[])
 {
     time_t timer;
     FILE *file;
+    struct tm * timei;
 
+	time(&timer);
+	timei = localtime(&timer);
+	*dte = timei;
 	file = fOpen(source_file_name[], "r");
 	
     
-    /* Missing Code Here */
+    /* xxMissing Code Here */
     return file;
 }
 BOOLEAN get_source_line(FILE *src_file, char src_name[], char todays_date[])
@@ -34,10 +38,13 @@ BOOLEAN get_source_line(FILE *src_file, char src_name[], char todays_date[])
     char print_buffer[MAX_SOURCE_LINE_LENGTH + 9];
     char source_buffer[MAX_SOURCE_LINE_LENGTH];
     static int line_number = 0;
-    
-    if (1) //This is missing a condition
+	    
+    if (fgets(source_buffer[], MAX_SOURCE_LINE_LENGTH, src_file) != null) 
     {
-		/*  Missing Code Here */
+	sprintf(print_buffer[], "%c" + todays_date[], source_buffer[]);
+	line_number++;
+	print_line(print_buffer[], src_name[], todays_date[]);
+		/*  xxMissing Code Here */
         return (TRUE);
     }
     else
