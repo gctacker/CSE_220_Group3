@@ -7,6 +7,7 @@ void print_line(char line[], char source_name_to_print[], char date_to_print[])
     char save_ch;
     char *save_chp = NULL;
     static int line_count = MAX_LINES_PER_PAGE;
+    bool length = false;
     
     if (++line_count > MAX_LINES_PER_PAGE)
     {
@@ -15,21 +16,26 @@ void print_line(char line[], char source_name_to_print[], char date_to_print[])
     }
     if (strlen(line) > MAX_PRINT_LINE_LENGTH) 
     {
-        /* Missing Code Here */
+        char save_ch = line[MAX_PRINT_LINE_LENGTH-1];
+	line[MAX_PRINT_LINE_LENGTH-1] = "/0";
+	length = true;
     }
     if (save_chp)
     {
-        /* Missing Code Here */
+        printf("%s", &line[]);
     }
-    /* Missing Code Here */
-    if (save_chp)
+    
+    if (length)
     {
-        /* Missing Code Here */
+        line[MAX_PRINT_LINE_LENGTH-1] = save_ch;
+	length = false;
     }
 }
 static void print_page_header(char source_name[], char date[])
 {
     static int page_number = 0;
     
-    /* Missing Code Here */
+    printf("/f");
+    printf("%s %s",  &source_name[], &date[]);
+    page_number++;
 }
