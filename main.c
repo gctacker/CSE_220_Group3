@@ -11,7 +11,7 @@ int main (int argc, const char *argv[])
 	looped = get_source_line(*source_file, source_name[],date[]);
 	while(looped)
 	{
-		looped = get_source_line(*source_file, source_name[],date[]);
+		looped = get_source_line(*source_file, source_name[], *date[]);
 	}
 	
     fclose(source_file);
@@ -27,7 +27,7 @@ FILE *init_lister(const char *name, char source_file_name[], char dte[])
 	time(&timer);
 	timei = localtime(&timer);
 	*dte = timei;
-	file = fOpen(source_file_name[], "r");
+	file = fopen(source_file_name[], "r");
 	
     
     /* xxMissing Code Here */
@@ -41,8 +41,8 @@ BOOLEAN get_source_line(FILE *src_file, char src_name[], char todays_date[])
 	    
     if (fgets(source_buffer[], MAX_SOURCE_LINE_LENGTH, src_file) != null) 
     {
-	sprintf(print_buffer[], "%c" + todays_date[], source_buffer[]);
 	line_number++;
+	sprintf(print_buffer[], "%d %s", line_number, source_buffer[]);
 	print_line(print_buffer[], src_name[], todays_date[]);
 		/*  xxMissing Code Here */
         return (TRUE);
