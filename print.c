@@ -6,17 +6,17 @@ void print_line(char line[], char source_name_to_print[], char date_to_print[])
 {
     char save_ch;
     char *save_chp = NULL;
-    static int line_count = MAX_LINES_PER_PAGE;
+    static int line_count = MAX_LINES_PER_PAGE;		//line_count = 50
     bool length = FALSE;
     
-    if (++line_count > MAX_LINES_PER_PAGE)
+    if (++line_count > MAX_LINES_PER_PAGE)		//line_count > 50
     {
         print_page_header(&source_name_to_print[0], &date_to_print[0]);
-	line_count = 1;
+	line_count = 1;					//restarts line count to 1 for new page
     }
-    if (strlen(line) > MAX_PRINT_LINE_LENGTH) 
+    if (strlen(line) > MAX_PRINT_LINE_LENGTH) 		//length of string > 80
     {
-        char save_ch = line[MAX_PRINT_LINE_LENGTH-1];
+        char save_ch = line[MAX_PRINT_LINE_LENGTH-1];	
 	line[MAX_PRINT_LINE_LENGTH-1] = '\0';
 	length = TRUE;
     }
