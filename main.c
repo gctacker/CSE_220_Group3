@@ -4,9 +4,9 @@
 int main (int argc, const char *argv[])
 {
 	
-    FILE *source_file = NULL;
-    char source_name[MAX_FILE_NAME_LENGTH];
-    char date[DATE_STRING_LENGTH];
+    FILE *source_file = NULL;				
+    char source_name[MAX_FILE_NAME_LENGTH];		//source_name array size = 32
+    char date[DATE_STRING_LENGTH];			// data arrazy size = 26
 
 	
 
