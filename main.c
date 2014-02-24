@@ -27,12 +27,12 @@ int main (int argc, const char *argv[])
 
 
 
+	get_source_line = TRUE;
 
 
-
-	while(get_source_line(source_file, source_name, date))
+	while(get_source_line)
 	{
-		
+		get_source_line(source_file, source_name, date);
 	}
 	
     fclose(source_file);
