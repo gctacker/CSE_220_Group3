@@ -1,4 +1,8 @@
+#Christine Malong: Tin2x
+#Gregory Tacker: gctacker
+
 #makefile
+
 header = common.h     #declare header variables
 files = main.c print.c #declare .c file variables
 
