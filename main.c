@@ -1,3 +1,6 @@
+//Christine Malong: Tin2x
+//Gregory Tacker: gctacker
+
 #include "common.h"
 #include <stdio.h>
 
