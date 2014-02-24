@@ -55,10 +55,10 @@ BOOLEAN get_source_line(FILE *src_file, char src_name[], char todays_date[])
 
     if (fgets(source_buffer,MAX_SOURCE_LINE_LENGTH,src_file)) 
     { 
-	line_number++;
-	sprintf(print_buffer, "%d %s", line_number, source_buffer);
+	line_number++;			//increase line_number by 1
+	sprintf(print_buffer, "%d %s", line_number, source_buffer);	//print format: line number, source line
 	
-	print_line(print_buffer, src_name, todays_date);
+	print_line(print_buffer, src_name, todays_date);	
 		/*  xxMissing Code Here */
 
 
