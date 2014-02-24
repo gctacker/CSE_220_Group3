@@ -6,34 +6,35 @@ void print_line(char line[], char source_name_to_print[], char date_to_print[])
 {
     char save_ch;
     char *save_chp = NULL;
-    static int line_count = MAX_LINES_PER_PAGE;		//line_count = 50
+    static int line_count = MAX_LINES_PER_PAGE;			//line_count = 50
     bool length = FALSE;
     
-    if (++line_count > MAX_LINES_PER_PAGE)		//line_count > 50
+    if (++line_count > MAX_LINES_PER_PAGE)			//test the number of lines on the page, line_count > 50
     {
-        print_page_header(source_name_to_print, date_to_print); //new page; prints source_name[0]; and date[0]
-	line_count = 1;					//restarts line count to 1 for new page
+        print_page_header(source_name_to_print, date_to_print); //go to page header to make a new page
+	line_count = 1;						//restarts line count to 1 for new page
     }
-    if (strlen(line) > MAX_PRINT_LINE_LENGTH) 		//length of string > 80
+    if (strlen(line) > MAX_PRINT_LINE_LENGTH) 			//test the length of the string, length of string > 80
     {
-        char save_ch = line[MAX_PRINT_LINE_LENGTH-1];	//save_ch is line[79]
-	line[MAX_PRINT_LINE_LENGTH-1] = '\0';		//line array size 79 = null 
-	length = TRUE;
+        char save_ch = line[MAX_PRINT_LINE_LENGTH-1];		//save the character at the max lenght spot
+	line[MAX_PRINT_LINE_LENGTH-1] = '\0';			//put null terminator in the max length spot
+	length = TRUE;						//set boolean to true to restore value after it prints
     }
-
-        printf("%s", &line[0]);
+        
+	printf("%s", line);					//print the line to the screen no tests to be done, a line will always be printed
     
     if (length)
     {
-        line[MAX_PRINT_LINE_LENGTH-1] = save_ch;
+        line[MAX_PRINT_LINE_LENGTH-1] = save_ch;		//if boolean is true restore the value and jump to a new line
 	length = FALSE;
+	printf("\n");
     }
 }
 static void print_page_header(char source_name[], char date[])
 {
-    static int page_number = 0;				//page number set to 0
+    static int page_number = 0;
     
-    printf("\f");					
-    printf("%s %s",  &source_name[0], &date[0]);	//print source_name string at 0 and date string at 0
-    page_number++;					//page number increase by 1
+    printf("\f");					//print a new page
+    printf("%s %s",  &source_name[0], &date[0]);	//print the name and date to the top of a screen
+    page_number++;					//increase the page number
 }
