@@ -11,7 +11,7 @@ void print_line(char line[], char source_name_to_print[], char date_to_print[])
     
     if (++line_count > MAX_LINES_PER_PAGE)		//line_count > 50
     {
-        print_page_header(&source_name_to_print[0], &date_to_print[0]);
+        print_page_header(source_name_to_print, date_to_print);
 	line_count = 1;					//restarts line count to 1 for new page
     }
     if (strlen(line) > MAX_PRINT_LINE_LENGTH) 		//length of string > 80
@@ -20,10 +20,8 @@ void print_line(char line[], char source_name_to_print[], char date_to_print[])
 	line[MAX_PRINT_LINE_LENGTH-1] = '\0';
 	length = TRUE;
     }
-    if (save_chp)
-    {
+
         printf("%s", &line[0]);
-    }
     
     if (length)
     {
@@ -35,7 +33,7 @@ static void print_page_header(char source_name[], char date[])
 {
     static int page_number = 0;
     
-    printf("%s", "/f");
+    printf("\f");
     printf("%s %s",  &source_name[0], &date[0]);
     page_number++;
 }
