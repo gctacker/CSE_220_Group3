@@ -15,6 +15,9 @@ int main (int argc, const char *argv[])
 
 	/*sprintf(&source_name[0], "%s", argv[1]);*/
 	/*source_name[0]= argv[1];*/
+
+	
+
 	*source_file = *init_lister(argv[1], source_name, date);
 	
 	while(get_source_line(source_file, source_name, date))
@@ -43,16 +46,32 @@ FILE *init_lister(const char *name, char source_file_name[], char dte[])
 }
 BOOLEAN get_source_line(FILE *src_file, char src_name[], char todays_date[])
 {
+	if(TRUE)
+	{
+	  printf("%s\n", todays_date);
+	}
+
     char print_buffer[MAX_SOURCE_LINE_LENGTH + 9];
     char source_buffer[MAX_SOURCE_LINE_LENGTH];
-    static int line_number = 0;
-	    
+    static int line_number = 0;    
+
+if(TRUE)
+	{
+	  printf("%d\n", line_number);
+	}	
+
     if (fgets(source_buffer, MAX_SOURCE_LINE_LENGTH, src_file) != NULL) 
     {
+
+
 	line_number++;
 	sprintf(print_buffer, "%d %s", line_number, &source_buffer[0]);
 	print_line(print_buffer, src_name, todays_date);
 		/*  xxMissing Code Here */
+
+
+
+
         return (TRUE);
     }
     else
