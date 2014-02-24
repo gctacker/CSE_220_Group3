@@ -1,3 +1,6 @@
+//Christine Malong: Tin2x
+//Gregory Tacker: gctacker
+
 #include "common.h"
 
 static void print_page_header(char source_name[], char date[]);
