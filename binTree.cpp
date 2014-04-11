@@ -1,7 +1,7 @@
 //
 //Binary Tree
 //
-//
+//Gregory C. Tacker gctacker
 //
 #include "binTree.h"
 #include "Scanner.h"
