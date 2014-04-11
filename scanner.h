@@ -8,6 +8,7 @@
 #ifndef Lab4_Scanner_h
 #define Lab4_Scanner_h
 
+#include <sstream>
 #include "common.h"
 #include "Token.h"
 #include "Print.h"
@@ -33,7 +34,7 @@ private:
     char todays_date[DATE_STRING_LENGTH];
     CharCode char_table[CHAR_TABLE_SIZE];  // The character table
     char source_line[MAX_SOURCE_LINE_LENGTH];
-    char *line_ptr;
+    char *line_ptr = NULL;
     int line_number;
     
     bool getSourceLine(char source_buffer[]);
@@ -51,6 +52,7 @@ public:
     Scanner(FILE *source_file, char source_name[], char date[], Print printer);
     ~Scanner();
     Token* getToken();
+    string getLine();
 
 };
 
