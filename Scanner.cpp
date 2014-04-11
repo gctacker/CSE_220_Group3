@@ -28,7 +28,6 @@ const RwStruct rw_table[9][10] = {
 
 Scanner::Scanner(FILE *source_file, char source_name[], char date[], Print printer) : print(printer)
 {
-	*line_ptr = NULL;
     src_file = source_file;
     strcpy(src_name, source_name);
     strcpy(todays_date, date);
@@ -470,4 +469,14 @@ bool Scanner::isReservedWord(char *str, Token *tok)
         }
     }
     return false;
+}
+
+
+string Scanner::getLine()
+{
+	string rtn;
+	ostringstream cnvrt;
+	cnvrt << line_number;
+	rtn = cnvrt.str();
+	return rtn;
 }
