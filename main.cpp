@@ -10,6 +10,7 @@
 #include "Print.h"
 #include "Scanner.h"
 #include "Token.h"
+#include "binTree.h"
 
 FILE *init_lister(const char *name, char source_file_name[], char dte[]);
 void quit_scanner(FILE *src_file, Token *list);
@@ -28,19 +29,32 @@ int main(int argc, const char * argv[])
     FILE *source_file = init_lister(argv[1], source_name, date);
     Print print(source_name, date);
     Scanner scanner(source_file, source_name, date, print);
+    binTree *head = new binTree();
     
     do
     {
         token = scanner.getToken();
         print.printToken(token);
-        if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
+
+	
+	if(token->getCode() == IDENTIFIER)//check for identifier token
+	{//send to bintree to be added
+	head = head->addRoot(head, token->getTokenString(), scanner.getLine());
+	}
+	if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
         {
             delete token;
         }
+	
     }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
     
     delete token;
+if(head != NULL)
+{  //print out whole bintree
+	cout<<"\n Cross Reference Information\n Identifier 		Line Numbers \n -----------		------------\n";
+   head->printTree();
+}
     fclose(source_file);
     return 0;
 }
