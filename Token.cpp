@@ -9,12 +9,11 @@
 
 Token::Token()
 {
-    Token *node;
-	node =(Token*)malloc(sizeof(Token));
+    this->next = NULL;
 }
 Token::~Token()
 {
-    free(this);
+    //What code do I need here to free memory
 }
 void Token::setCode(TokenCode newCode)
 {
