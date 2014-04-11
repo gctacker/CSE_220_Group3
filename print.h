@@ -29,6 +29,7 @@ public:
     
     void printLine(char line[]);
     void printToken(Token *token);
+    
 };
 
 #endif /* defined(__Lab4__Print__) */
